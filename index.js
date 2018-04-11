@@ -1,3 +1,4 @@
+#!/usr/bin/env 
 const fs = require('fs');
 const argv = require('yargs').argv;
 
