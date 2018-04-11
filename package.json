@@ -23,5 +23,8 @@
     "unirest": "^0.5.1",
     "xml2js": "^0.4.19",
     "yargs": "^11.0.0"
+  },
+  "bin": {
+    "coveralls-reporter": "./index.js"
   }
 }
