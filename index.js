@@ -18,6 +18,7 @@ let committerEmail = argv.committer_email;
 let commitMessage = argv.commit_message;
 let gitBranch = argv.git_branch;
 let sourceFolder = argv.source_folder;
+let coverallsEndpoint = argv.endpoint || 'https://coveralls.io';
 let files = argv.i;
 let output = [];
 let parsedFiles = 0;
