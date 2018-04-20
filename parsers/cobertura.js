@@ -16,28 +16,32 @@ module.exports = {
 
       const sourcePath = result.coverage.sources[0].source[0];
 
-      result.coverage.packages.forEach(classList => {
-        classList.class.forEach(classDef => {
-          const fileCheckSum = checksum(path.join(sourcePath, classDef.$.filename));
-          var lineHits = []
+      result.coverage.packages.forEach(package => {
+        package.package.forEach(packageList => {
+          packageList.classes.forEach(classList => {
+            classList.class.forEach(classDef => {
+              const fileCheckSum = checksum(path.join(sourcePath, classDef.$.filename));
+              var lineHits = []
 
-          classDef.lines.forEach(lines => {
-            lines.line.forEach(line => {
-              let counter = lineHits.length;
+              classDef.lines.forEach(lines => {
+                lines.line.forEach(line => {
+                  let counter = lineHits.length;
 
-              while(counter < line.$.number - 1) {
-                lineHits[counter] = null;
-                ++counter;
-              }
+                  while(counter < line.$.number - 1) {
+                    lineHits[counter] = null;
+                    ++counter;
+                  }
 
-              lineHits[line.$.number - 1] = parseInt(line.$.hits);
+                  lineHits[line.$.number - 1] = parseInt(line.$.hits);
+                });
+              });
+
+              results.push({
+                name: slash(classDef.$.filename),
+                source_digest: fileCheckSum,
+                coverage: lineHits
+              });
             });
-          });
-
-          results.push({
-            name: slash(classDef.$.filename),
-            source_digest: fileCheckSum,
-            coverage: lineHits
           });
         });
       });
