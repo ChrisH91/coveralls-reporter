@@ -24,6 +24,10 @@ module.exports = {
               var lineHits = []
 
               classDef.lines.forEach(lines => {
+                if (!lines.line) {
+                  return;
+                }
+
                 lines.line.forEach(line => {
                   let counter = lineHits.length;
 
