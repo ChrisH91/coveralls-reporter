@@ -1,6 +1,6 @@
 {
   "name": "coveralls-reporter",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Tool to merge different coverage types into Coveralls format",
   "main": "index.js",
   "scripts": {

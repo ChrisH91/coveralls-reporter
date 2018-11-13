@@ -9,7 +9,6 @@ const publish = require('./publish');
 const parsers = [cobertura, openCover];
 
 let serviceName = argv.service_name || 'Coveralls Reporter';
-let coverallsEndpoint = argv.endpoint;
 let buildNumber = argv.build_number;
 let repoToken = argv.repo_token;
 let commitHash = argv.commit_hash;
